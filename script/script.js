@@ -61,3 +61,47 @@ clearbutton.addEventListener("click", function (){
 
 
 })
+
+// heart icons
+
+let hearts=document.querySelectorAll(".heart_icon");
+console.log('hearts',hearts)
+
+let heart=document.getElementById('heart-count')
+
+let heart_count=parseInt(heart.innerText)
+console.log('heart_count',heart_count)
+
+hearts.forEach(cnt=>{
+  cnt.addEventListener("click",function(){
+    heart_count++;
+  heart.innerText=heart_count;
+    
+  })
+  
+})
+
+
+
+// challenge parent
+
+let copyButtons= document.querySelectorAll(".copy_btn");
+
+copyButtons.forEach((btn) => {
+    btn.addEventListener("click", function () {
+        
+       
+        let card= this.closest(".card-1");
+        let number= card.querySelectorAll("h1")[1].innerText;
+
+
+        navigator.clipboard.writeText(number)
+        alert(`Copied : ${number}`)
+        let copyCount = document.querySelector(".copy_count");
+        let currentCount = parseInt(copyCount.innerText);
+        console.log('cuurentcount',currentCount)
+        currentCount++;
+
+        copyCount.innerText = currentCount;
+    });
+});
